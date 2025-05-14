@@ -32,6 +32,10 @@ body{
   border-radius: 6px;
 }
 
+button{
+  cursor:pointer;
+}
+
 .animation-style{
   animation: call 01s infinite linear;
 }
