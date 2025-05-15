@@ -1,6 +1,10 @@
 import React from 'react'
 import Header from '../../components/Header'
 import bash from './bash.png'
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
+import { FaTwitter } from "react-icons/fa";
 
 const AboutPage = () => {
   return (
@@ -16,9 +20,16 @@ const AboutPage = () => {
       <div className=''>
         <h1 className='text-[3.5rem]'>Hello, I'm <br /> Bashir Abdulah</h1>
 
-        <p className='py-[2.5rem] leading-[2rem] text-sm text-[#B2B2B3]'>I am a <span className='text-white'>frontend developer</span> I have a strong background in creating visually appealing and user-friendly web experiences. I am motivated to find a role where I can challenge myself and provide value to website users. I am excited to bring my knowledge and experience to a team and contribute to a company's success.</p>
+        <p className='py-[2rem] leading-[2rem] text-sm text-[#B2B2B3]'>I am a <span className='text-white'>frontend developer</span> I have a strong background in creating visually appealing and user-friendly web experiences. I am motivated to find a role where I can challenge myself and provide value to website users. I am excited to bring my knowledge and experience to a team and contribute to a company's success.</p>
 
-        <button className='py-4 px-5 bg-white text-black text-sm'>View Resume</button>
+        <div className='flex items-center gap-5 cursor-pointer py-2'>
+        <FaLinkedin />
+        <FaGithub />
+        <SiGmail />
+        <FaTwitter />
+        </div>
+
+        <button className='mt-6 py-4 px-5 bg-white text-black text-sm'>View Resume</button>
       </div>
       <div className=''>
         <img src={bash} alt="bash image" className='object-contain w-[36.5vw]' />
