@@ -4,6 +4,8 @@ import clabed from './clabed.png'
 import bloggle from './bloggle.png'
 import { useState, useEffect } from "react";
 import {sanityClient} from '../../sanityClient'
+import { TbBrandGithub } from "react-icons/tb";
+import { AiFillEye } from "react-icons/ai";
 
 // const projectData = [
 //   {
@@ -67,7 +69,7 @@ const Projects = () => {
     <div>
       <div className="mt-[3rem] grid grid-cols-3 gap-[2rem]">
         {projects.map((project, index) => (
-          <div className="shadow-xl" key={index}>
+          <div className="shadow-2xl" key={index}>
             {/* <img src={project.mainImage} alt={project.mainImage.alt} /> */}
             {project.mainImage && (
               <img src={project.mainImage.asset.url} alt={project.name} />
@@ -80,8 +82,14 @@ const Projects = () => {
               <p className="">{project.technology} </p>
 
               <div className="flex items-center justify-start gap-6 text-sm text-[#B2B2B3] cursor-pointer">
-                <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="hover:scale-[1.1]">Code</a>
-                <a href={project.viewLink} target="_blank" rel="noopener noreferrer" className="hover:scale-[1.1]">View live</a>
+                <div className="flex items-center gap-2 hover:scale-[1.1] transition">
+                    <TbBrandGithub className="fill-white" />
+                <a href={project.codeLink} target="_blank" rel="noopener noreferrer" className="">Code</a>
+                </div>
+               <div className="flex items-center gap-2 hover:scale-[1.1] transition">
+                <AiFillEye className="text-white" />
+               <a href={project.viewLink} target="_blank" rel="noopener noreferrer" className="">View live</a>
+               </div>
               </div>
             </div>
           </div>
