@@ -9,39 +9,9 @@ import { AiFillEye } from "react-icons/ai";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-// const projectData = [
-//   {
-//     id: 1,
-//     image: project_image,
-//     name: "iRefer",
-//     subtext: "Connecting You to Quality Services, Products, and Solutions.",
-//     technology: "Nextjs + Tailwind + Sanity(CMS) + Typescript",
-//   },
-//   {
-//     id: 2,
-//     image: clabed,
-//     name: "Clabed Autos",
-//     subtext: "Connecting You to Quality Services, Products, and Solutions.",
-//     technology: "React + CSS + Node +   MongoDB",
-//   },
-//   {
-//     id: 3,
-//     image: bloggle,
-//     name: "Bloggle",
-//     subtext: "Blog about your favorite things and explore loads of content.",
-//     technology: "React + Tailwind + Node +   MongoDB",
-//   },
-//   {
-//     id: 4,
-//     image: project_image,
-//     name: "Kulture Kaps",
-//     subtext: "Connecting You to Quality Services, Products, and Solutions.",
-//     technology: "Nextjs + Tailwind + Sanity(CMS) + Typescript",
-//   },
-// ];
-
 const Projects = () => {
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     sanityClient
@@ -64,12 +34,22 @@ const Projects = () => {
       .then((data) => {
         console.log("Fetched Projects:", data);
         setProjects(data);
+        setLoading(false);
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
   }, []);
   return (
     <div>
-      <div className="mt-[3rem] grid grid-cols-3 gap-[2rem]">
+      {
+        loading ? (
+          <div className="mt-[3rem] flex items-center justify-center text-white text-xl">
+            Loading <span className="bounce-dot">.</span><span className="bounce-dot">.</span><span className="bounce-dot">.</span>
+          </div>
+        ) : (
+          <div className="mt-[3rem] grid grid-cols-3 gap-[2rem]">
         {projects.map((project, index) => (
           <div className="shadow-2xl" key={index}>
             {/* <img src={project.mainImage} alt={project.mainImage.alt} /> */}
@@ -103,6 +83,9 @@ const Projects = () => {
         ))}
 
       </div>
+        )
+      }
+      
     </div>
   );
 };
