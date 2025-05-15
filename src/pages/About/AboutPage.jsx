@@ -32,7 +32,7 @@ const AboutPage = () => {
         <button className='mt-6 py-4 px-5 bg-white text-black text-sm'>View Resume</button>
       </div>
       <div className=''>
-        <img src={bash} alt="bash image" className='object-contain w-[36.5vw]' />
+        <img src={bash} alt="bash image" className='object-contain w-[36.5vw]' loading='lazy' />
       </div>
     </div>
   )
