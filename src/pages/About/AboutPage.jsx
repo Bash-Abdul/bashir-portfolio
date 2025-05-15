@@ -5,16 +5,25 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import { FaTwitter } from "react-icons/fa";
+import { useState, useEffect } from 'react';
+import { sanityClient } from '../../sanityClient';
 
 const AboutPage = () => {
+  const [resume, setResume] = useState([]);
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "resume"]{
+       resume_link
+      }`
+      )
+      .then((data) => setResume(data))
+
+      .catch(console.error);
+  }, []);
   return (
-    // <div className='bg-red-600'>
-    //   {/* <Header title='About'/> */}
-    //   <div className='w-full grid grid-cols-2 w-full'>
-    //     <div className='bg-red-400 w-full h-full'></div>
-    //     <div className='bg-blue-400 w-full h-full'></div>
-    //   </div>
-    // </div>
+
+    
 
     <div className='h-full w-full grid grid-cols-2 gap-[10rem] place-items-center'>
       <div className=''>
@@ -30,7 +39,12 @@ const AboutPage = () => {
         </div>
 
         <div className='flex items-center gap-4'>
-        <button className='mt-6 py-4 px-5 bg-white text-black text-sm'>View Resume</button>
+        {/* <button className='mt-6 py-4 px-5 bg-white text-black text-sm'>View Resume</button> */}
+        {
+          resume.map((resume) => (
+            <a href={resume.resume_link} target='_blank' download={'link'} key={resume.resume_link} className='mt-6 py-4 px-5 bg-white text-black text-sm'>View Resume</a>
+          ))
+        }
         <button className='mt-6 py-4 px-5 bg-white text-black text-sm'>Contact Me</button>
         </div>
       </div>
