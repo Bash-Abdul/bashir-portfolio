@@ -1,46 +1,133 @@
-import React, { useRef } from "react";
+// import React, { useRef } from "react";
+// import emailjs from "@emailjs/browser";
+
+// const ContactForm = () => {
+//   const form = useRef();
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+
+//     emailjs
+//       .sendForm(
+//         'service_p4hpeuh',       // Replace with your EmailJS Service ID
+//         'template_jq9iboi',      // Replace with your EmailJS Template ID
+//         form.current,
+//         'ufSlZ84I3JJ0KGXgT'        // Replace with your EmailJS Public Key
+//       )
+//       .then(
+//         (result) => {
+//           console.log(result.text);
+//           alert("Message sent successfully!");
+//         },
+//         (error) => {
+//           console.log(error.text);
+//           alert("Failed to send message.");
+//         }
+//       );
+
+//     e.target.reset();
+//   }
+
+
+//   return (
+//     <div className="w-full">
+//       {/* <form action="" className='bg-white h-[500px] flex items-center justify-center'>
+//           <div className='grid gap-8'>
+//           <input type="text" className='text-black p-5 w-[500px] outline-none border' placeholder='Enter your name' />
+//           <input type="email" className='text-black p-5 w-[500px] outline-none border' placeholder='Enter your email' />
+//           <textarea name="" className='border w-[500px] p-5 outline-none h-[150px] text-black' id=""></textarea>
+//           </div>
+//         </form> */}
+
+//       <form
+//         action=""
+//         ref={form}
+//         onSubmit={handleSubmit}
+//         className="text-white flex flex-col gap-8"
+//       >
+//         <input
+//           type="text"
+//           name="name"
+//           className="text-white p-5 outline-none border"
+//           placeholder="Enter your name"
+//         />
+//         <input
+//           type="email"
+//           name="user_email"
+//           className="text-white p-5 outline-none border"
+//           placeholder="Enter your email"
+//         />
+//         <textarea
+//           name="message"
+//           className="border p-5 outline-none h-[150px] text-white resize-none"
+//           id=""
+//           placeholder="Enter Message"
+//         ></textarea>
+
+//         {/* <div>
+//         <button className="bg-white text-black p-5 text-sm font-bold ">
+//           Connect
+//         </button>
+//         </div> */}
+//         <button className="bg-white text-black p-5 text-sm font-bold " type="submit">
+//           CONNECT
+//         </button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default ContactForm;
+
+
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 const ContactForm = () => {
   const form = useRef();
+  const [loading, setLoading] = useState(false); // Loading state
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     emailjs
       .sendForm(
-        'service_p4hpeuh',       // Replace with your EmailJS Service ID
-        'template_jq9iboi',      // Replace with your EmailJS Template ID
+        'service_p4hpeuh',         // Your EmailJS Service ID
+        'template_jq9iboi',        // Your Template ID
         form.current,
-        'ufSlZ84I3JJ0KGXgT'        // Replace with your EmailJS Public Key
+        'ufSlZ84I3JJ0KGXgT'        // Your Public Key
       )
       .then(
         (result) => {
           console.log(result.text);
-          alert("Message sent successfully!");
+          Swal.fire({
+            icon: "success",
+            title: "Message Sent!",
+            text: "Thank you for reaching out. I'll get back to you soon.",
+            confirmButtonColor: "#3085d6"
+          });
         },
         (error) => {
           console.log(error.text);
-          alert("Failed to send message.");
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong. Please try again.",
+            confirmButtonColor: "#d33"
+          });
         }
-      );
-
-    e.target.reset();
-  }
-
+      )
+      .finally(() => {
+        setLoading(false);
+        e.target.reset();
+      });
+  };
 
   return (
     <div className="w-full">
-      {/* <form action="" className='bg-white h-[500px] flex items-center justify-center'>
-          <div className='grid gap-8'>
-          <input type="text" className='text-black p-5 w-[500px] outline-none border' placeholder='Enter your name' />
-          <input type="email" className='text-black p-5 w-[500px] outline-none border' placeholder='Enter your email' />
-          <textarea name="" className='border w-[500px] p-5 outline-none h-[150px] text-black' id=""></textarea>
-          </div>
-        </form> */}
-
       <form
-        action=""
         ref={form}
         onSubmit={handleSubmit}
         className="text-white flex flex-col gap-8"
@@ -48,29 +135,32 @@ const ContactForm = () => {
         <input
           type="text"
           name="name"
+          required
           className="text-white p-5 outline-none border"
           placeholder="Enter your name"
         />
         <input
           type="email"
           name="user_email"
+          required
           className="text-white p-5 outline-none border"
           placeholder="Enter your email"
         />
         <textarea
           name="message"
+          required
           className="border p-5 outline-none h-[150px] text-white resize-none"
-          id=""
           placeholder="Enter Message"
         ></textarea>
 
-        {/* <div>
-        <button className="bg-white text-black p-5 text-sm font-bold ">
-          Connect
-        </button>
-        </div> */}
-        <button className="bg-white text-black p-5 text-sm font-bold " type="submit">
-          CONNECT
+        <button
+          type="submit"
+          disabled={loading}
+          className={`bg-white text-black p-5 text-sm font-bold transition duration-300 ${
+            loading ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
+        >
+          {loading ? "Sending..." : "CONNECT"}
         </button>
       </form>
     </div>
