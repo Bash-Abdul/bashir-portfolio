@@ -1,5 +1,6 @@
 import React from 'react'
 import Projects from './Projects'
+import Button from '../../components/Button'
 
 const ProjectPage = () => {
   return (

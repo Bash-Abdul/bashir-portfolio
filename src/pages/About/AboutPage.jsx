@@ -9,7 +9,9 @@ import { useState, useEffect } from 'react';
 import { sanityClient } from '../../sanityClient';
 import { Helmet } from 'react-helmet-async';
 import { motion } from "framer-motion";
-
+import Button from '../../components/Button';
+import ButtonLink from '../../components/ButtonLink';
+import AboutImage from './AboutImage';
 
 const AboutPage = () => {
   const [resume, setResume] = useState([]);
@@ -54,7 +56,7 @@ const AboutPage = () => {
           {/* <h1 className='text-[3rem] text-[#B2B2B3]'>Hello 👋🏼, I'm <br /> <span className='text-white'> Bashir Abdulah</span></h1> */}
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1}}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
             <h1 className='text-[3rem] text-[#B2B2B3]'>Hello 👋🏼, I'm <br /> <span className='text-white'> Bashir Abdulah</span></h1>
@@ -70,26 +72,12 @@ const AboutPage = () => {
           </div>
 
           <div className='flex items-center gap-4'>
-            {/* <button className='mt-6 py-4 px-5 bg-white text-black text-sm'>View Resume</button> */}
-            {
-              resume.map((resume) => (
-                <a href={resume.resume_link} target='_blank' download={'link'} key={resume.resume_link} className='mt-6 py-4 px-5 bg-white text-black text-sm'>View Resume</a>
-              ))
-            }
-            <button className='mt-6 py-4 px-5 bg-white text-black text-sm'>Contact Me</button>
+            <ButtonLink button_title={'View Resume'} />
+            <Button button_title={'Contact Me'} />
           </div>
         </div>
-        <div className=''>
-          {/* <img src={bash} alt="bash image" className='home-image object-contain w-[36.5vw]' loading='lazy' /> */}
-          <motion.img
-            src={bash}
-            alt="about image"
-            initial={{ opacity: 0}}
-            animate={{ opacity: 1}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className='home-image object-contain w-[36.5vw]' loading='lazy'
-          />
-        </div>
+
+        <AboutImage />
       </div>
     </div>
   )
