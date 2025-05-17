@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-      <div className='w-full h-screen overflow-y-scroll bg-[#181918] px-[10%]'>
+      <div className='w-full h-screen overflow-y-scroll bg-[#181918] px-[5%] lg:px-[10%]'>
         <Navbar />
         <WhatsApp />
         <div className='flex items-center justify-center h-[80vh] py-5 relative'>
