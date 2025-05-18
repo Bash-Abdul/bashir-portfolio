@@ -13,6 +13,7 @@ import Button from '../../components/Button';
 import ButtonLink from '../../components/ButtonLink';
 import AboutImage from './AboutImage';
 
+
 const AboutPage = () => {
   const [resume, setResume] = useState([]);
   useEffect(() => {

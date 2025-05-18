@@ -137,20 +137,20 @@ const ContactForm = () => {
           type="text"
           name="name"
           required
-          className="text-white p-5 outline-none border"
+          className="text-white p-5 outline-none border border-2"
           placeholder="Enter your name"
         />
         <input
           type="email"
           name="user_email"
           required
-          className="text-white p-5 outline-none border"
+          className="text-white p-5 outline-none border border-2"
           placeholder="Enter your email"
         />
         <textarea
           name="message"
           required
-          className="border p-5 outline-none h-[150px] text-white resize-none"
+          className="border p-5 outline-none h-[150px] text-white resize-none border-2"
           placeholder="Enter Message"
         ></textarea>
 
