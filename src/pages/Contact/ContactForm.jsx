@@ -127,7 +127,11 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.4 }}
+      className="w-full">
       <form
         ref={form}
         onSubmit={handleSubmit}
@@ -167,7 +171,7 @@ const ContactForm = () => {
           {loading ? "Sending..." : "CONNECT"}
         </motion.button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 
