@@ -79,7 +79,7 @@ const AboutPage = () => {
         <AboutImage />
       </div> */}
 
-      <div className="w-full h-full flex flex-col lg:grid lg:grid-cols-2 lg:gap-[10rem] place-items-center">
+      <div className="w-full h-full flex flex-col lg:grid lg:grid-cols-2 gap-[3rem] lg:gap-[10rem] place-items-center">
       <Helmet>
           <title>Bashir Abdulah | React Frontend Developer - Modern Web and App Interfaces</title>
           <meta
@@ -117,7 +117,7 @@ const AboutPage = () => {
             <span className="text-white">and provide value to website users</span>. I am excited to bring my knowledge and experience to a team and contribute to a company's success.
           </p>
 
-          <div className="flex justify-center lg:justify-start items-center gap-8 py-2">
+          <div className="flex justify-center lg:justify-start items-center gap-8 py-2 cursor-pointer">
             <FaLinkedin />
             <FaGithub />
             <SiGmail />

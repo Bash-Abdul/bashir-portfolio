@@ -83,6 +83,7 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
+import { motion } from "framer-motion";
 
 const ContactForm = () => {
   const form = useRef();
@@ -153,15 +154,18 @@ const ContactForm = () => {
           placeholder="Enter Message"
         ></textarea>
 
-        <button
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 300 }}
           type="submit"
           disabled={loading}
-          className={`bg-white text-black p-5 text-sm font-bold transition duration-300 ${
-            loading ? 'opacity-50 cursor-not-allowed' : ''
-          }`}
+          // className={`bg-white text-black p-5 text-sm font-bold transition duration-300 ${loading ? 'opacity-50 cursor-not-allowed' : ''
+          //   }`}
+          className="py-4 px-5 bg-white text-black shadow-md hover:shadow-lg transition-shadow duration-300 font-medium tracking-wide'"
         >
           {loading ? "Sending..." : "CONNECT"}
-        </button>
+        </motion.button>
       </form>
     </div>
   );

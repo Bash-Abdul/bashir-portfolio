@@ -97,13 +97,19 @@ const Navbar = () => {
 
         {/* Hamburger Menu Icon */}
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden z-50">
-            {isMenuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
+            {!isMenuOpen && <FaBars size={22} />}
           </button>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <ul className="text-white absolute w-[97.6%] z-100 flex flex-col gap-3 px-2 bg-red-500 left-0 md:hidden">
+        <ul className="background text-white fixed w-screen h-screen z-100 flex flex-col items-center justify-center z-[100000] gap-3 px-2 bg-red-500 top-0 left-0 md:hidden">
+          <button className='fixed right-[5%] top-[6.5%]' onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {
+              isMenuOpen && <FaTimes size={22} />
+            }
+          
+          </button>
           <li className='py-3'><NavLink onClick={() => setIsMenuOpen(false)} to="/" className={navLinkClasses}>About</NavLink></li>
           <li className='py-3'><NavLink onClick={() => setIsMenuOpen(false)} to="/skills" className={navLinkClasses}>Skills</NavLink></li>
           <li className='py-3'><NavLink onClick={() => setIsMenuOpen(false)} to="/projects" className={navLinkClasses}>Project</NavLink></li>
