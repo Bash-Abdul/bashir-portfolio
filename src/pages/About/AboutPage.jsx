@@ -126,7 +126,7 @@ const AboutPage = () => {
 
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 mt-4">
             <ButtonLink button_title={'View Resume'} />
-            <Button button_title={'Contact Me'} />
+            <Button path={'/contact'} button_title={'Contact Me'} />
           </div>
         </div>
 

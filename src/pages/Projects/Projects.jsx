@@ -49,7 +49,7 @@ const Projects = () => {
             Loading <span className="bounce-dot">.</span><span className="bounce-dot">.</span><span className="bounce-dot">.</span>
           </div>
         ) : (
-          <div className="mt-[3rem] grid grid-cols-3 gap-[2rem]">
+          <div className="mt-[3rem] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2rem]">
         {projects.map((project, index) => (
           <div className="shadow-2xl" key={index}>
             {/* <img src={project.mainImage} alt={project.mainImage.alt} /> */}

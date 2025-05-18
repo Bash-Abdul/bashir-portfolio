@@ -11,6 +11,7 @@ const SkillsPage = lazy(() => import('./pages/Skills/SkillsPage'))
 const ProjectPage = lazy(() => import('./pages/Projects/ProjectPage'))
 const ContactPage = lazy(() => import('./pages/Contact/ContactPage'))
 import WhatsApp from './components/WhatsApp';
+import MobileFooter from './components/Footer';
 
 
 function Loading() {
@@ -28,10 +29,10 @@ function App() {
 
   return (
     <>
-      <div className='w-full h-screen overflow-y-scroll bg-[#181918] px-[5%] lg:px-[10%]'>
+      <div className='w-full min-h-screen bg-[#181918] px-[5%] lg:px-[10%]'>
         <Navbar />
         <WhatsApp />
-        <div className='flex items-center justify-center h-[80vh] py-5 relative'>
+        <div className='flex items-center justify-center py-6 mb-7 lg:mb-0 relative'>
 
           <div className='w-full h-full text-white'>
             <Routes location={location} key={location.key}>
@@ -74,6 +75,8 @@ function App() {
             </Routes>
           </div>
         </div>
+
+        <MobileFooter />
 
       </div>
     </>
