@@ -104,7 +104,7 @@ const AboutPage = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
           >
             <h1 className="text-[2.2rem] sm:text-[2.5rem] lg:text-[3rem] text-[#B2B2B3]">
               Hello 👋🏼, I'm <br />
@@ -119,16 +119,20 @@ const AboutPage = () => {
           </p>
 
           <div className="flex justify-center lg:justify-start items-center gap-8 py-2 cursor-pointer">
-            <FaLinkedin />
-            <FaGithub />
-            <SiGmail />
-            <FaTwitter />
+            <a href="https://www.linkedin.com/in/bashir-abdulah-54086333a/" target='_blank' rel="noopener noreferrer"><FaLinkedin /></a>
+            <a href="https://github.com/Bash-Abdul" target='_blank' rel="noopener noreferrer"><FaGithub /></a>
+            <a href="mailto:bashirtaiwo59@gmail.com"><SiGmail /></a>
+            <a href=" " target='_blank' rel="noopener noreferrer"><FaTwitter /></a>
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 mt-4">
+          <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 mt-4">
             <ButtonLink button_title={'View Resume'} />
             <Button path={'/contact'} button_title={'Contact Me'} />
-          </div>
+          </motion.div>
         </div>
 
         <AboutImage />
