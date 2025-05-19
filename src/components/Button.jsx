@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import React from 'react'
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
 
 const Button = ({button_title, path}) => {
     return (
