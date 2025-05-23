@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import viteLogo from '/vite.svg'
 import { React, Suspense, lazy } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import './App.css'

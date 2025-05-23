@@ -103,7 +103,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <ul className="background text-white fixed w-screen h-screen z-100 flex flex-col items-center justify-center z-[100000] gap-3 px-2 bg-red-500 top-0 left-0 md:hidden">
+        <ul className="background text-white fixed w-screen h-screen flex flex-col items-center justify-center z-[100000] gap-3 px-2 bg-red-500 top-0 left-0 md:hidden">
           <button className='fixed right-[5%] top-[6.5%]' onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {
               isMenuOpen && <FaTimes size={22} />
