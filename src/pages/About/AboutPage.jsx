@@ -176,7 +176,7 @@ const AboutPage = () => {
         title="Bashir Abdulah | React Frontend Developer - Modern Web and App Interfaces"
         // description="About Bashir Abdulah, also known as Bash Abdul, a React frontend developer creating fast, accessible, user-friendly web experiences."
         description="Welcome to the portfolio of Bashir Abdulah, a React frontend developer crafting modern, responsive websites and mobile apps with clean UI/UX design and scalable performance."
-        url="/about"
+        url="/"
       />
 
       <div className="w-full h-full flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-[10rem] place-items-center">

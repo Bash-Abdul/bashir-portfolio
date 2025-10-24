@@ -85,7 +85,7 @@ export default function SEO({
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={canonical} />
-      <meta property="og:site_name" content="bashabdul.com" />
+      <meta property="og:site_name" content="bashabdul.vercel.app" />
       <meta property="og:image" content={image} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
