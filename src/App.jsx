@@ -83,3 +83,28 @@ function App() {
 }
 
 export default App
+
+
+// import { Outlet } from 'react-router-dom';
+// import Navbar from './components/Navbar';
+// import Sidebar from './components/Sidebar';
+
+// export default function App(){
+//   return (
+//     <div className="min-h-screen bg-[#0b0b0b] text-white">
+//       <main className="container-7xl pt-6 pb-24">
+//         <div className="grid md:grid-cols-[320px,1fr] gap-6">
+//           <aside>
+//             <Sidebar />
+//           </aside>
+//           <section className="min-h-[60vh]">
+//             <Outlet />
+//           </section>
+//         </div>
+//       </main>
+//       <nav className="fixed bottom-0 left-0 right-0 backdrop-blur bg-[#2B2B2B]/70 border-t border-jet">
+//         <Navbar />
+//       </nav>
+//     </div>
+//   );
+// }
